@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Account.cpp                                        :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:19:13 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/10/13 15:21:55 by brhajji-         ###   ########.fr       */
+/*   Created: 2022/10/24 18:46:08 by brhajji-          #+#    #+#             */
+/*   Updated: 2022/10/24 20:14:57 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Account.hpp"
+#include "HumanA.hpp"
 
-void Account::makeDeposit( int deposit )
+HumanB::HumanB(void) : name("random")
 {
-    this->_amount += deposit;
-    this->_totalNbDeposits++;
+}
+
+HumanB::HumanB(std::string name) : name(name)
+{
+}
+
+HumanB::~HumanB()
+{
+}
+
+void	HumanB::attack()
+{
+	std::cout << name << " attacks with his " << this->sword.getType() << std::endl;
+}
+
+void	HumanB::setWeapon(Weapon &object)
+{
+	sword = object;
 }

@@ -6,11 +6,12 @@
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:23:33 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/10/12 23:00:42 by brhajji-         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:17:50 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Phonebook.hpp"
+# include <cstdio>
 
 static int	ft_stoi(std::string str)
 {
@@ -38,7 +39,6 @@ int main()
 	Phonebook myPhone;
 	std::string buff;
 	std::string	tab[5] = {"First name", "Last name", "Nickname", "Phonenumber", "Darkest secret"};
-	int j;
 	int i = -1;
 	
 
@@ -46,14 +46,18 @@ int main()
 	{
 		std::cout<<"Enter a command : ";
 		std::getline(std::cin,buff);
+		if (std::cin.eof())
+			return 1;
 		if (!(buff.compare("ADD")))
 		{
 			std::string	value[5];
-			j = 0;
+			int j = 0;
 			while (j < 5 && !value[j].length())
 			{
 				std::cout<<"Enter the "<<tab[j]<<" :";
 				std::getline(std::cin, value[j]);
+				if (std::cin.eof())
+					return 1;
 				if (j == 4 || value[j].length())
 					j++;
 			}
@@ -64,10 +68,14 @@ int main()
 			myPhone.Print();
 			std::cout<<"Enter the index of the contact :";
 			std::getline(std::cin,buff);
-			while (is_dig(buff) || ft_stoi(buff) > i)
+			if (std::cin.eof())
+				return 1;
+			while (is_dig(buff) || ft_stoi(buff) > i || ft_stoi(buff) < i - 7)
 			{
 				std::cout<<"Wrong input, try again :";
 				std::getline(std::cin,buff);
+				if (std::cin.eof())
+					return 1;
 			}
 			myPhone.GetContact(ft_stoi(buff)).PrintOne();
 		}
