@@ -6,7 +6,7 @@
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:23:33 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/10/18 15:17:50 by brhajji-         ###   ########.fr       */
+/*   Updated: 2022/10/25 11:14:14 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,21 @@ int main()
 		else if (!(buff.compare("SEARCH")))
 		{
 			myPhone.Print();
-			std::cout<<"Enter the index of the contact :";
-			std::getline(std::cin,buff);
-			if (std::cin.eof())
-				return 1;
-			while (is_dig(buff) || ft_stoi(buff) > i || ft_stoi(buff) < i - 7)
+			if (i != - 1)
 			{
-				std::cout<<"Wrong input, try again :";
+				std::cout<<"Enter the index of the contact :";
 				std::getline(std::cin,buff);
 				if (std::cin.eof())
 					return 1;
+				while (is_dig(buff) || ft_stoi(buff) > i || ft_stoi(buff) < i - 7)
+				{
+					std::cout<<"Wrong input, try again :";
+					std::getline(std::cin,buff);
+					if (std::cin.eof())
+						return 1;
+				}
+				myPhone.GetContact(ft_stoi(buff)).PrintOne();
 			}
-			myPhone.GetContact(ft_stoi(buff)).PrintOne();
 		}
 	}
 	return (0);

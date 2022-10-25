@@ -6,13 +6,13 @@
 #    By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 18:00:26 by brhajji-          #+#    #+#              #
-#    Updated: 2022/10/25 12:45:55 by brhajji-         ###   ########.fr        #
+#    Updated: 2022/10/25 15:09:36 by brhajji-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OBJS_DIR = objs
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp\
+SRCS = main.cpp\
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 

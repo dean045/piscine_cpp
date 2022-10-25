@@ -6,7 +6,7 @@
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:46:21 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/10/24 20:23:18 by brhajji-         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:49:07 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define WEAPON_HPP
 
 #include<iostream>
-#include "HumanA.hpp"
-
 class Weapon
 {
 	private:
@@ -24,8 +22,12 @@ class Weapon
 		Weapon(std::string str);
 		Weapon();
 		~Weapon();
-		const std::string* getType();
+		const std::string& getType();
 		void setType(std::string str);
 };
+
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+
 
 #endif
