@@ -6,7 +6,7 @@
 #    By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 18:00:26 by brhajji-          #+#    #+#              #
-#    Updated: 2022/10/12 18:26:53 by brhajji-         ###   ########.fr        #
+#    Updated: 2022/10/28 12:46:21 by brhajji-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 NAME = megaphone
 
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 # -g -fsanitize=address
 
 

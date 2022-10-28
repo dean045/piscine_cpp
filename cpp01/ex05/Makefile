@@ -6,17 +6,17 @@
 #    By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 18:00:26 by brhajji-          #+#    #+#              #
-#    Updated: 2022/10/28 12:46:16 by brhajji-         ###   ########.fr        #
+#    Updated: 2022/10/25 18:05:36 by brhajji-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OBJS_DIR = objs
 
-SRCS = main.cpp \
+SRCS = main.cpp Harl.cpp\
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
-NAME = phonebook
+NAME = a.out
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98  -g# -fsanitize=address

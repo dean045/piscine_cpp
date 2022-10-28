@@ -6,7 +6,7 @@
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:34:27 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/10/12 23:00:04 by brhajji-         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:57:23 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Phonebook::~Phonebook()
 int Phonebook::Add(std::string prenom, std::string nom, std::string pseudo, std::string num, std::string secret, int i)
 {
     Contact nouveau;
-    nouveau.Complete(prenom, nom, pseudo, num, secret, i);
+    nouveau.Complete(prenom, nom, pseudo, num, secret, i % 10);
 
     if (nb < 8)
     {

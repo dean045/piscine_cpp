@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 18:46:02 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/10/28 12:36:33 by brhajji-         ###   ########.fr       */
+/*   Created: 2022/10/25 17:22:15 by brhajji-          #+#    #+#             */
+/*   Updated: 2022/10/25 18:12:57 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include"Harl.hpp"
 
-void	HumanA::setWeapon(Weapon &sword)
+int main()
 {
-	this->sword = &sword;
-}
-
-HumanA::HumanA(std::string name, Weapon &sword) : name(name), sword(&sword)
-{
-}
-
-HumanA::~HumanA()
-{
-}
-
-void	HumanA::attack()
-{
-	std::cout << name << " attacks with his " <<  this->sword->getType() << std::endl;
+	Harl test = Harl();
+	test.complain("DEBUG");
+	test.complain("INFO");
+	test.complain("WARNING");
+	test.complain("ERROR");
 }

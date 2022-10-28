@@ -6,7 +6,7 @@
 #    By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 18:00:26 by brhajji-          #+#    #+#              #
-#    Updated: 2022/10/24 18:10:34 by brhajji-         ###   ########.fr        #
+#    Updated: 2022/10/25 18:14:04 by brhajji-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
 NAME = a.out
 
-CC = g++
+CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98  -g# -fsanitize=address
 
 

@@ -6,7 +6,7 @@
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:23:33 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/10/25 11:14:14 by brhajji-         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:55:55 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int main()
 				if (j == 4 || value[j].length())
 					j++;
 			}
-			myPhone.Add(value[0], value[1], value[2], value[3], value[4], ++i);
+			myPhone.Add(value[0], value[1], value[2], value[3], value[4], (++i));
 		}
 		else if (!(buff.compare("SEARCH")))
 		{
