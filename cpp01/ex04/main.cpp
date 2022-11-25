@@ -6,7 +6,7 @@
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:09:25 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/10/25 15:48:17 by brhajji-         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:24:21 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ static void replace(std::string s1, std::string s2, std::string& fName)
 	std::string buffer;
 	while (fd.get(c))
 		buffer += c;
-	if (!fd.eof())
+	/*if (!fd.eof())
 	{
 		std::cout<<"File error."<<std::endl;
 		return ;
-	}
+	}*/
 	while (1)
 	{
 		pos = buffer.find(s1);

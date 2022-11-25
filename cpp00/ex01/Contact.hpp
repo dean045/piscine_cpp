@@ -6,7 +6,7 @@
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 18:40:22 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/10/28 12:54:28 by brhajji-         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:58:38 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,29 @@ Contact::~Contact()
 void Contact::PrintAttr(std::string str)
 {
 	int w = -1;
-	while (++w < 9 && w < (int)str.length())
-		std::cout<<str[w];
-    if (str.length() > 10)
-        std::cout<<".";
-    else if (str.length() == 10)
-        std::cout<<str[9];
-    else
-        while (w++ < 10)
-		    std::cout<<" ";
+    if (str.length() == 10)
+        std::cout<<str;
+	else if (str.length() > 10)
+	{
+		while (++w < 9 && w < (int)str.length())
+			std::cout<<str[w];
+        std::cout<<".";	
+	}	
+	else
+	{
+		while (w++ < (9 - (int)str.length()))
+	    	std::cout<<" ";
+		std::cout<<str;	
+	}
 }
 
 void Contact::PrintAllAttr()
 {
-	std::cout<<this->index;
     for (int i = 0; i < 9; i++)
-        std::cout<<" ";
+	{
+    	std::cout<<" ";
+	}
+	std::cout<<this->index;
     std::cout<<"|";
     this->PrintAttr(this->firstName);
     std::cout<<"|";

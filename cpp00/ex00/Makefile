@@ -6,7 +6,7 @@
 #    By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 18:00:26 by brhajji-          #+#    #+#              #
-#    Updated: 2022/10/28 12:46:21 by brhajji-         ###   ########.fr        #
+#    Updated: 2022/10/30 12:06:23 by brhajji-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,12 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJS_DIR)/%.o : %.cpp | $(OBJS_DIR)
-	$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) -MMD -o $@ -c $<
 
 $(OBJS_DIR):
 	mkdir -p $@
 
-clean:
+clean
 	rm -rf $(OBJS) $(OBJS_DIR) $(DEPS)
 
 fclean: clean

@@ -6,7 +6,7 @@
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:46:05 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/10/25 15:02:52 by brhajji-         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:10:32 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,5 @@ class HumanA
 		void attack();
 		void setWeapon(Weapon &object);
 };
-
-
 
 #endif

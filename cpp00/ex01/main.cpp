@@ -6,12 +6,14 @@
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:23:33 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/10/28 12:55:55 by brhajji-         ###   ########.fr       */
+/*   Updated: 2022/10/28 15:04:19 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Phonebook.hpp"
 # include <cstdio>
+# include <unistd.h>
+# include <math.h>
 
 static int	ft_stoi(std::string str)
 {
@@ -34,6 +36,21 @@ static int	is_dig(std::string str)
 	return (0);
 }
 
+std::string gen_random(const int len) {
+    static const char alphanum[] =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";
+    std::string tmp_s;
+    tmp_s.reserve(len);
+
+    for (int i = 0; i < len; ++i) {
+        tmp_s += alphanum[rand() % (sizeof(alphanum) - 1)];
+    }
+    
+    return tmp_s;
+}
+
 int main()
 {
 	Phonebook myPhone;
@@ -41,7 +58,9 @@ int main()
 	std::string	tab[5] = {"First name", "Last name", "Nickname", "Phonenumber", "Darkest secret"};
 	int i = -1;
 	
-
+	for (int x = 0; x < 8 ; x++)
+		myPhone.Add(gen_random(2), gen_random(12), gen_random(6), gen_random(5), gen_random(5), (++i));
+	
 	while ((buff.compare("EXIT") != 0))
 	{
 		std::cout<<"Enter a command : ";
@@ -72,7 +91,7 @@ int main()
 				std::getline(std::cin,buff);
 				if (std::cin.eof())
 					return 1;
-				while (is_dig(buff) || ft_stoi(buff) > i || ft_stoi(buff) < i - 7)
+				while (is_dig(buff) || ft_stoi(buff) > i || ft_stoi(buff) < 0)
 				{
 					std::cout<<"Wrong input, try again :";
 					std::getline(std::cin,buff);

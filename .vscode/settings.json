@@ -1,6 +1,5 @@
 {
 	"files.associations": {
-		"iosfwd": "cpp",
 		"*.tcc": "cpp",
 		"cctype": "cpp",
 		"clocale": "cpp",
@@ -13,8 +12,8 @@
 		"cwchar": "cpp",
 		"cwctype": "cpp",
 		"exception": "cpp",
-		"fstream": "cpp",
 		"initializer_list": "cpp",
+		"iosfwd": "cpp",
 		"iostream": "cpp",
 		"istream": "cpp",
 		"limits": "cpp",
@@ -26,6 +25,9 @@
 		"string_view": "cpp",
 		"system_error": "cpp",
 		"type_traits": "cpp",
-		"typeinfo": "cpp"
-	}
+		"typeinfo": "cpp",
+		"numbers": "cpp",
+		"fstream": "cpp"
+	},
+	"C_Cpp.errorSquiggles": "Disabled"
 }
