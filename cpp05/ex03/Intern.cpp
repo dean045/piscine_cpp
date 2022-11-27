@@ -6,7 +6,7 @@
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:39:06 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/11/25 18:11:29 by brhajji-         ###   ########.fr       */
+/*   Updated: 2022/11/27 17:21:31 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ Form *Intern::makeForm(std::string name, std::string target)
 			{
 				return (this->*(func[i]))(target);
 			}
-		}
+		}  
 	}
 	std::cout<<"ERR"<<std::endl;
 	return (NULL);
