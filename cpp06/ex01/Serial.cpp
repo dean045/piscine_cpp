@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serial.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 11:18:49 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/12/13 16:05:35 by brhajji-         ###   ########.fr       */
+/*   Created: 2022/12/13 16:25:38 by brhajji-          #+#    #+#             */
+/*   Updated: 2022/12/15 18:39:09 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.hpp"
+#include"Serial.hpp"
 
-int main(int ac, char **av)
+uintptr_t	serialize(Data *ptr)
 {
-	if (ac != 2)
-	{
-		std::cout<<"Error: invalid number of argument."<< std::endl;
-		return (0);
-	}
-	else
-	{
-		std::string	value(av[1]);
-		Utils	to_utils(value);
-		to_utils.findType();
-		to_utils.convert();
-	}
-	return (0);
+	return reinterpret_cast<uintptr_t>(ptr);
+}
+
+Data	*deserialize(uintptr_t ptr)
+{
+	return reinterpret_cast<Data *>(ptr);
+}
+
+std::ostream&	operator<<(std::ostream &flux, const Data &d)
+{
+	return flux << d.ptr << std::endl;
 }

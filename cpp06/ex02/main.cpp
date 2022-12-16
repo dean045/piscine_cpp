@@ -5,26 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/29 11:18:49 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/12/13 16:05:35 by brhajji-         ###   ########.fr       */
+/*   Created: 2022/12/16 00:04:27 by brhajji-          #+#    #+#             */
+/*   Updated: 2022/12/16 19:34:25 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.hpp"
+#include "Base.hpp"
 
-int main(int ac, char **av)
+int main()
 {
-	if (ac != 2)
-	{
-		std::cout<<"Error: invalid number of argument."<< std::endl;
-		return (0);
-	}
-	else
-	{
-		std::string	value(av[1]);
-		Utils	to_utils(value);
-		to_utils.findType();
-		to_utils.convert();
-	}
-	return (0);
+	Base *test = generate();
+	identify(test);
+	identify(*test);
+	delete test;
 }

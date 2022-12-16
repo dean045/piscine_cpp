@@ -6,17 +6,17 @@
 #    By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 18:00:26 by brhajji-          #+#    #+#              #
-#    Updated: 2022/12/13 16:04:48 by brhajji-         ###   ########.fr        #
+#    Updated: 2022/12/15 18:34:24 by brhajji-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OBJS_DIR = objs
 
-SRCS = main.cpp Utils.cpp\
+SRCS = main.cpp Serial.cpp\
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
-NAME = convert
+NAME = a.out
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 #-g -fsanitize=address
