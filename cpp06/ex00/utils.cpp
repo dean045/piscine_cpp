@@ -6,7 +6,7 @@
 /*   By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:53:54 by brhajji-          #+#    #+#             */
-/*   Updated: 2022/12/13 16:05:16 by brhajji-         ###   ########.fr       */
+/*   Updated: 2022/12/17 00:32:48 by brhajji-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,5 +188,5 @@ void Utils::convert(void)
 	else if (this->is_float == true)
 		return (to_float());
 	else
-		std::cout << "impossible to Utils." << std::endl;
+		std::cout << "impossible to convert." << std::endl;
 }

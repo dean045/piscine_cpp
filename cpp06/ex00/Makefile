@@ -6,13 +6,13 @@
 #    By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 18:00:26 by brhajji-          #+#    #+#              #
-#    Updated: 2022/12/13 16:04:48 by brhajji-         ###   ########.fr        #
+#    Updated: 2022/12/17 00:31:55 by brhajji-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OBJS_DIR = objs
 
-SRCS = main.cpp Utils.cpp\
+SRCS = main.cpp utils.cpp\
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
