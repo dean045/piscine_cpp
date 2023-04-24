@@ -4,11 +4,14 @@
 
 # include <iostream>
 # include <vector>
-# include <list>
+# include <deque>
 # include <cstdlib>
 # include <sstream>
 # include <string>
 # include <cstring>
+# include <ctime>
+# include <ratio>
+# include <chrono>
 
 int	parse(int ac, char **av);
 
@@ -25,12 +28,13 @@ void insertionSort(T& A, int p, int q) {
     }
 }
 
-template<class T>
-void merge(T& A, int p, int q, int r) {
-    int n1 = q - p + 1;
+template<typename T>
+void merge(std::vector<T>& A, int p, int q, int r)
+{
+        int n1 = q - p + 1;
     int n2 = r - q;
-    typename T<int> LA(A.begin() + p, A.end() - q);
-    typedef typename T<int> RA(A.begin() + q + 1, A.end());
+    std::vector<int> LA(A.begin() + p, A.end() - q);
+    std::vector<int> RA(A.begin() + q + 1, A.end());
     int RIDX = 0;
     int LIDX = 0;
     for (int i = p; i < r - p + 1; i++) {
@@ -49,6 +53,57 @@ void merge(T& A, int p, int q, int r) {
         }
     }
 }
+
+template<typename T>
+void merge(std::deque<T>& A, int p, int q, int r)
+{
+    int n1 = q - p + 1;
+    int n2 = r - q;
+    std::deque<int> LA(A.begin() + p, A.end() - q);
+    std::deque<int> RA(A.begin() + q + 1, A.end());
+    int RIDX = 0;
+    int LIDX = 0;
+    for (int i = p; i < r - p + 1; i++) {
+        if (RIDX == n2) {
+            A[i] = LA[LIDX];
+            LIDX++;
+        } else if (LIDX == n1) {
+            A[i] = RA[RIDX];
+            RIDX++;
+        } else if (RA[RIDX] > LA[LIDX]) {
+            A[i] = LA[LIDX];
+            LIDX++;
+        } else {
+            A[i] = RA[RIDX];
+            RIDX++;
+        }
+    }
+}
+
+// template<class T>
+// void merge(T& A, int p, int q, int r) {
+//     int n1 = q - p + 1;
+//     int n2 = r - q;
+//     typename T<int> LA(A.begin() + p, A.end() - q);
+//     typedef T<int> RA(A.begin() + q + 1, A.end());
+//     int RIDX = 0;
+//     int LIDX = 0;
+//     for (int i = p; i < r - p + 1; i++) {
+//         if (RIDX == n2) {
+//             A[i] = LA[LIDX];
+//             LIDX++;
+//         } else if (LIDX == n1) {
+//             A[i] = RA[RIDX];
+//             RIDX++;
+//         } else if (RA[RIDX] > LA[LIDX]) {
+//             A[i] = LA[LIDX];
+//             LIDX++;
+//         } else {
+//             A[i] = RA[RIDX];
+//             RIDX++;
+//         }
+//     }
+// }
 
 template<class T>
 void sort(T& A, int p, int r) {
