@@ -6,7 +6,7 @@
 #    By: brhajji- <brhajji-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 18:00:26 by brhajji-          #+#    #+#              #
-#    Updated: 2023/03/19 14:59:26 by brhajji-         ###   ########.fr        #
+#    Updated: 2023/04/26 16:09:05 by brhajji-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 NAME = btc
 
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -g3# -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -std=c++98 #-g3 -fsanitize=address
 
 
 all: $(NAME)

@@ -46,7 +46,7 @@ void    do_op(std::string input)
         tmp.erase(remove_if(tmp.begin(), tmp.end(), ::isspace), tmp.end());
         for (size_t i = 0; i < tmp.length(); i++)
         {
-            if (!isdigit(tmp[i]) && s_num.size() >= 1)
+            if (!isdigit(tmp[i]) && s_num.size() > 1)
             {
                 nb1 = s_num.top();
                 s_num.pop();

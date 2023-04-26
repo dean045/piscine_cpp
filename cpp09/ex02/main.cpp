@@ -29,7 +29,7 @@ int main(int ac, char **av)
 		end = clock();
 		double deq_time = (end - start) / (double)(CLOCKS_PER_SEC / 1000);
 
-		//display after
+		//display result
 		std::cout<<"After : ";
 		PrintContainer(my_vec);
 		std::cout<<"Time to process a range of "<<ac - 1<<" elements with std::vector : "<<vec_time<<" us\n";
