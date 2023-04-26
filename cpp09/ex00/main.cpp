@@ -19,5 +19,5 @@ int main(int ac, char **av)
 		}
 	}
 	else
-		std::cout<<"Error: could not open file."<<'\n';
+		std::cout<<"Error: bad input."<<'\n';
 }
