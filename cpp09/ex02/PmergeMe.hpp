@@ -10,111 +10,18 @@
 # include <string>
 # include <cstring>
 # include <ctime>
-# include <ratio>
-# include <chrono>
+# include <math.h>
 
 int	parse(int ac, char **av);
 
 template<class T>
-void insertionSort(T& A, int p, int q) {
-    for (int i = p; i < q; i++) {
-        int tempVal = A[i + 1];
-        int j = i + 1;
-        while (j > p && A[j - 1] > tempVal) {
-            A[j] = A[j - 1];
-            j--;
-        }
-        A[j] = tempVal;
-    }
-}
-
-template<typename T>
-void merge(std::vector<T>& A, int p, int q, int r)
+void PrintContainer(T& container)
 {
-        int n1 = q - p + 1;
-    int n2 = r - q;
-    std::vector<int> LA(A.begin() + p, A.end() - q);
-    std::vector<int> RA(A.begin() + q + 1, A.end());
-    int RIDX = 0;
-    int LIDX = 0;
-    for (int i = p; i < r - p + 1; i++) {
-        if (RIDX == n2) {
-            A[i] = LA[LIDX];
-            LIDX++;
-        } else if (LIDX == n1) {
-            A[i] = RA[RIDX];
-            RIDX++;
-        } else if (RA[RIDX] > LA[LIDX]) {
-            A[i] = LA[LIDX];
-            LIDX++;
-        } else {
-            A[i] = RA[RIDX];
-            RIDX++;
-        }
-    }
-}
-
-template<typename T>
-void merge(std::deque<T>& A, int p, int q, int r)
-{
-    int n1 = q - p + 1;
-    int n2 = r - q;
-    std::deque<int> LA(A.begin() + p, A.end() - q);
-    std::deque<int> RA(A.begin() + q + 1, A.end());
-    int RIDX = 0;
-    int LIDX = 0;
-    for (int i = p; i < r - p + 1; i++) {
-        if (RIDX == n2) {
-            A[i] = LA[LIDX];
-            LIDX++;
-        } else if (LIDX == n1) {
-            A[i] = RA[RIDX];
-            RIDX++;
-        } else if (RA[RIDX] > LA[LIDX]) {
-            A[i] = LA[LIDX];
-            LIDX++;
-        } else {
-            A[i] = RA[RIDX];
-            RIDX++;
-        }
-    }
-}
-
-// template<class T>
-// void merge(T& A, int p, int q, int r) {
-//     int n1 = q - p + 1;
-//     int n2 = r - q;
-//     typename T<int> LA(A.begin() + p, A.end() - q);
-//     typedef T<int> RA(A.begin() + q + 1, A.end());
-//     int RIDX = 0;
-//     int LIDX = 0;
-//     for (int i = p; i < r - p + 1; i++) {
-//         if (RIDX == n2) {
-//             A[i] = LA[LIDX];
-//             LIDX++;
-//         } else if (LIDX == n1) {
-//             A[i] = RA[RIDX];
-//             RIDX++;
-//         } else if (RA[RIDX] > LA[LIDX]) {
-//             A[i] = LA[LIDX];
-//             LIDX++;
-//         } else {
-//             A[i] = RA[RIDX];
-//             RIDX++;
-//         }
-//     }
-// }
-
-template<class T>
-void sort(T& A, int p, int r) {
-    if (r - p > 5) {
-        int q = (p + r) / 2;
-        sort(A, p, q);
-        sort(A, q + 1, r);
-        merge(A, p, q, r);
-    } else {
-        insertionSort(A, p, r);
-    }
+	typedef typename T::iterator Iter;
+    for (Iter p = container.begin(); p != container.end(); ++p)
+    	std::cout<<*p<<" ";
+	
+    std::cout<<std::endl;
 }
 
 template<class T>
@@ -125,21 +32,73 @@ void AddToContainer(T& container, char **av, int ac)
 }
 
 template<class T>
-void PrintContainer(T& container)
+void AddToContainer(T& container, T& src,size_t pos, size_t len)
 {
-	int i = 0;
-	typedef typename T::iterator Iter;
-    for (Iter p = container.begin(); p != container.end(); ++p)
-	{
-    	std::cout<<*p<<" ";
-		if (++i == 10)
-		{
-			std::cout<<"[..]"<<std::endl;
-			return ;
-		}
-	}
-	
-	std::cout<<std::endl;
+    std::cerr<<"pos"<<pos<<" to"<<len<<std::endl; 
+	for (size_t i = pos ; i < len; i++)
+  		container.push_back(src[i]);
+}
+
+template<class T>
+void mysort(std::vector<T>& A) {
+    std::vector<int> v = A;
+    A.clear();
+    int n = v.size();
+    if (n == 1) {
+        return ;
+    } else {
+        std::vector<int> pairs;
+        for (int i = 0; i < n-1; i += 2) {
+            if (v[i] > v[i+1]) {
+                pairs.push_back(v[i]);
+                pairs.push_back(v[i+1]);
+            } else {
+                pairs.push_back(v[i+1]);
+                pairs.push_back(v[i]);
+            }
+        }
+        if (n % 2 != 0) {
+            pairs.push_back(v[n-1]);
+        }std::vector<int> largerElements;
+        largerElements.insert(largerElements.begin(), pairs.begin() + pairs.size()/2, pairs.end());
+        mysort(largerElements);
+        A.push_back(pairs[0]);
+        for (int i = 1; i < n; i++) {
+            std::vector<int>::iterator it = lower_bound(A.begin(), A.end(), pairs[i]);
+            A.insert(it, pairs[i]);
+        }
+    }
+}
+
+template<class T>
+void mysort(std::deque<T>& A) {
+    std::deque<int> v = A;
+    A.clear();
+    int n = v.size();
+    if (n == 1) {
+        return ;
+    } else {
+        std::deque<int> pairs;
+        for (int i = 0; i < n-1; i += 2) {
+            if (v[i] > v[i+1]) {
+                pairs.push_back(v[i]);
+                pairs.push_back(v[i+1]);
+            } else {
+                pairs.push_back(v[i+1]);
+                pairs.push_back(v[i]);
+            }
+        }
+        if (n % 2 != 0) {
+            pairs.push_back(v[n-1]);
+        }std::deque<int> largerElements;
+        largerElements.insert(largerElements.begin(), pairs.begin() + pairs.size()/2, pairs.end());
+        mysort(largerElements);
+        A.push_back(pairs[0]);
+        for (int i = 1; i < n; i++) {
+            std::deque<int>::iterator it = lower_bound(A.begin(), A.end(), pairs[i]);
+            A.insert(it, pairs[i]);
+        }
+    }
 }
 
 #endif

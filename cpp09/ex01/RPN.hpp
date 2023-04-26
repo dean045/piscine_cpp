@@ -2,7 +2,7 @@
 # define RPN_HPP
 
 # include <iostream>
-# include <deque>
+# include <stack>
 # include <cstdlib>
 # include <sstream>
 # include <string>

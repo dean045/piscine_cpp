@@ -33,8 +33,7 @@ int		calculate(int a, int b, char sign)
 
 void    do_op(std::string input)
 {
-    std::deque<int>			s_num;
-    std::deque<char>		s_op;
+    std::stack<int>			s_num;
 	std::istringstream		stream(input);
     std::string				tmp;
     int                     nb1;
@@ -43,32 +42,29 @@ void    do_op(std::string input)
 
     while (getline(stream, tmp, ' '))
 	{
-        if (!isdigit(tmp[0]))
-            s_op.push_back(tmp[0]);
+        if (!isdigit(tmp[0]) && s_num.size() > 1)
+        {
+            nb1 = s_num.top();
+            s_num.pop();
+            nb2 = s_num.top();
+            s_num.pop();
+            if (tmp[0] == '/' && nb1 == 0)
+            {
+                std::cerr<<"Error : Division by 0."<<std::endl;
+                return ;
+            }
+            nb3  = calculate(nb2, nb1, tmp[0]);
+            s_num.push(nb3);
+        }
         else if (isdigit(tmp[0]))
         {
-            if (s_op.size() == 1)
-            {
-                nb2 = s_num.front();
-                s_num.pop_front();
-                nb1 = s_num.front();
-                s_num.pop_front();
-                nb3  = calculate(nb1, nb2, s_op.front());
-                s_num.push_front(nb3);
-                s_op.pop_front();
-            }
-            s_num.push_front(std::atoi(tmp.c_str()));
+            s_num.push(std::atoi(tmp.c_str()));
+        }
+        else
+        {
+            std::cerr<<"Error : Invalid args"<<std::endl;
+            return ;
         }
     }
-    while (s_op.size())
-    {
-        nb1 = s_num.back();
-        s_num.pop_back();
-        nb2 = s_num.back();
-        s_num.pop_back();
-        nb3  = calculate(nb1, nb2, s_op.back());
-        s_num.push_back(nb3);
-        s_op.pop_back();
-    }
-    std::cout<<s_num.front()<<std::endl;
+    std::cout<<s_num.top()<<std::endl;
 }
