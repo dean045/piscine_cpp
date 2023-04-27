@@ -114,11 +114,11 @@ void	BitcoinExchange::run(std::string file)
 		{
 			std::string delimiter = " | ";
 			size_t pos = 0;
-			// std::cout<<d<<std::endl;
 			if ((pos = buff.find(delimiter)) != std::string::npos) 
 			{	
 				try
 				{
+					// std::cout<<"d=>"<<std::string(buff.substr(0, pos))<<std::endl;
 					tmp = Date(std::string(buff.substr(0, pos)));
 					buff.erase(0, pos + 3);
 					float value_tmp = -1;
@@ -132,8 +132,12 @@ void	BitcoinExchange::run(std::string file)
 				}
 				catch(const std::exception& e)
 				{
-					std::cerr << e.what() << '\n';
+					std::cerr <<"Error: "<< e.what() << '\n';
 				}
+			}
+			else
+			{
+				std::cout<<"Error: Bad input."<<std::endl;
 			}
 		}
 	}

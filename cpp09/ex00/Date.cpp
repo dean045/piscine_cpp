@@ -7,6 +7,7 @@ Date::Date(std::string d)
 	int tmp_y = atoi(date[0].c_str());
 	int tmp_m = atoi(date[1].c_str());
 	int tmp_d = atoi(date[2].c_str());
+	// std::cout<<tmp_y<<'/'<<tmp_m<<"/"<<tmp_d<<std::endl;
 	if (tmp_y <= 0 || tmp_m < 1 || tmp_m > 12 || tmp_d < 1 || tmp_d > 31)
 		throw Date::InvalideInput();
 	this->year = std::string(date[0]);
@@ -69,7 +70,7 @@ bool Date::operator>(const Date& src) const
 
 const char* Date::InvalideInput::what(void) const throw() 
 {
-  return ("Bad input");
+  return ("Wrong date.");
 }
 
 std::string Date::getYear() const
